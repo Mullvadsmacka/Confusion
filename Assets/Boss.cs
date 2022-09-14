@@ -6,20 +6,10 @@ public class Boss : MonoBehaviour
 {
 
 
-    private TrailRenderer trailRenderer;
+    [SerializeField] private GameObject playerArea;
+
+   
 
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        trailRenderer.GetComponent<TrailRenderer>();
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

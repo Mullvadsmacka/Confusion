@@ -13,7 +13,7 @@ public class BezierFollow : MonoBehaviour
 
     private Vector3 objectPosition;
 
-    private float speedModifier;
+    public float speedModifier;
 
     private bool coroutineAllowed;
 
@@ -27,7 +27,7 @@ public class BezierFollow : MonoBehaviour
     {
         routeToGo = 0;
         tParam = 0f;
-        speedModifier = 0.5f;
+        
         coroutineAllowed = true;
     }
 
@@ -44,6 +44,19 @@ public class BezierFollow : MonoBehaviour
            
             StartCoroutine(GoByTheRoute(routeToGo));
         }
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        speedModifier = 0.2f;
+    }
+
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+
+        speedModifier = 1f;
     }
 
     private IEnumerator GoByTheRoute(int routeNum)
