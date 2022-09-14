@@ -9,11 +9,7 @@ public class Exit : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Escape) == true)
-        {
-            Debug.Log("swap");
-            SceneManager.LoadScene(0);
-        }
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
