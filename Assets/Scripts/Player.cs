@@ -25,6 +25,9 @@ public class Player : MonoBehaviour
     private Vector3 velocity;
     public float smoothTime = 0.05f;
 
+    public bool cheeseMode = false;
+    [SerializeField] private float rotSpeed;
+
     [SerializeField] private LayerMask whatIsGround;
 
     // Start is called before the first frame update
@@ -93,6 +96,12 @@ public class Player : MonoBehaviour
         //  Animator.SetFloat("Speed", Mathf.Abs());
 
         calculatedMovement.x = speed * 100f * moveDirection * Time.fixedDeltaTime;
+
+        if(cheeseMode == true)
+        {
+            transform.Rotate(0.0f, 0.0f, -Input.GetAxis("Horizontal") * speed);
+        }
+      
         calculatedMovement.y = verticalVelocity;
         Move(calculatedMovement, isJumpPressed);
         isJumpPressed = false;
