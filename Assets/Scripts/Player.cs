@@ -51,7 +51,6 @@ public class Player : MonoBehaviour
     {
         isGrounded = false;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.transform.position, 0.2f, whatIsGround);
-        Debug.Log(sizeof(Collider2D)/sizeof(int));
         for (int i = 0; i < colliders.Length; i++)
         { 
             if (colliders[i].gameObject != gameObject)
