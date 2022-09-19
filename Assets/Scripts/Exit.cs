@@ -18,7 +18,7 @@ public class Exit : MonoBehaviour
             // if (collision.GetComponent<Quest>().isQuestComplete == true)
             //  {
             Debug.Log("Next Level");
-            GameObserver.SaveCoinsToMemory(collision.GetComponent<PlayerState>().coins);
+            GameObserver.SaveCoinsToMemory(/*collision.GetComponent<PlayerState>().coins*/PlayerState.coins);
             SceneManager.LoadScene(0);
             //  }
         }
