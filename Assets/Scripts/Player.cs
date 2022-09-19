@@ -25,7 +25,9 @@ public class Player : MonoBehaviour
     private Vector3 velocity;
     public float smoothTime = 0.05f;
 
-    public bool cheeseMode = false;
+    // public bool cheeseMode = false;
+
+    public bool canMove;
     [SerializeField] private float rotSpeed;
 
     [SerializeField] private LayerMask whatIsGround;
@@ -33,6 +35,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        canMove = true;
         defaultSpeed = speed;
         animator = gameObject.GetComponent<Animator>();
         animator.Play("IdleAnimation");
@@ -44,23 +47,25 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveDirection = Input.GetAxis("Horizontal");
-        if (Input.GetKey(KeyCode.Space) == true)
+        if (canMove == true)
         {
-            isJumpPressed = true;
+            moveDirection = Input.GetAxis("Horizontal");
+            if (Input.GetKey(KeyCode.Space) == true)
+            {
+                isJumpPressed = true;
+            }
+
+            if (moveDirection != 0)
+            {
+                animator.SetBool("Walking", true);
+            }
+            else
+            {
+                animator.SetBool("Walking", false);
+            }
+
         }
 
-        if (moveDirection != 0)
-        {
-            animator.SetBool("Walking", true);
-        }
-        else
-        {
-            animator.SetBool("Walking", false);
-        }
-
-
-        
 
     }
 
@@ -89,19 +94,19 @@ public class Player : MonoBehaviour
         if (isGrounded == false)
         {
             verticalVelocity = rb.velocity.y;
-           
+
         }
-  
+
 
         //  Animator.SetFloat("Speed", Mathf.Abs());
 
         calculatedMovement.x = speed * 100f * moveDirection * Time.fixedDeltaTime;
-
-        if(cheeseMode == true)
-        {
-            transform.Rotate(0.0f, 0.0f, -Input.GetAxis("Horizontal") * speed);
-        }
-      
+        /*
+                if(cheeseMode == true)
+                {
+                    transform.Rotate(0.0f, 0.0f, -Input.GetAxis("Horizontal") * speed);
+                }
+              */
         calculatedMovement.y = verticalVelocity;
         Move(calculatedMovement, isJumpPressed);
         isJumpPressed = false;
@@ -111,7 +116,7 @@ public class Player : MonoBehaviour
     {
         if (moveDirection.x > 0f && isFacingLeft == true)
         {
-          FlipSpriteDirection();
+            FlipSpriteDirection();
         }
         else if (moveDirection.x < 0f && isFacingLeft == false)
         {
@@ -120,7 +125,7 @@ public class Player : MonoBehaviour
 
         rb.velocity = Vector3.SmoothDamp(rb.velocity, moveDirection, ref velocity, smoothTime);
 
-        
+
 
 
         if (isJumpPressed == true && isGrounded == true)
@@ -137,9 +142,9 @@ public class Player : MonoBehaviour
     }
 
     public void GetSpeedBoost(float boost)
-    {   
+    {
         speed = boost;
-       // speed *= boost;
+        // speed *= boost;
     }
     public void returnToNormalSpeed()
     {

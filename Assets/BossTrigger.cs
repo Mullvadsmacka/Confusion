@@ -11,6 +11,7 @@ public class BossTrigger : MonoBehaviour
 
     [SerializeField] private Camera cameraComponent;
 
+[SerializeField] private GameObject player;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player") == true);
@@ -21,12 +22,23 @@ public class BossTrigger : MonoBehaviour
 
     private void Update()
     {
-        
+        timer -= Time.deltaTime;
+        if(timer < 0)
+        {
+            
+        }
     }
 
+
+private void CutScene()
+{
+    player.GetComponent<Player>().canMove = false;
+     cameraComponent.orthographicSize = 8;
+}
     private void StartBoss()
     {
-        cameraComponent.orthographicSize = 8;
+       
+
     }
     
 }
