@@ -25,6 +25,7 @@ public class BezierFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         routeToGo = 0;
         tParam = 0f;
         
@@ -46,18 +47,27 @@ public class BezierFollow : MonoBehaviour
         }
     }
 
-
+/*
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        speedModifier = 0.2f;
+        
+        {
+            speedModifier = 0.2f;
+        }
+        
     }
 
 
     private void OnCollisionExit2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("bossArea") == true)
+        {
+            speedModifier = 1f;
+        }
+         
+    
 
-        speedModifier = 1f;
-    }
+    */
 
     private IEnumerator GoByTheRoute(int routeNum)
     {
