@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
 
     // public bool cheeseMode = false;
 
-    public bool canMove;
+   [SerializeField] public bool canMove = true;
     [SerializeField] private float rotSpeed;
 
     [SerializeField] private LayerMask whatIsGround;

@@ -16,7 +16,7 @@ public class BossTrigger : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") == true);
         {
-
+            CutScene();
         }
     }
 
@@ -32,6 +32,8 @@ public class BossTrigger : MonoBehaviour
 
 private void CutScene()
 {
+
+        Debug.Log("What why?");
     player.GetComponent<Player>().canMove = false;
      cameraComponent.orthographicSize = 8;
 }
