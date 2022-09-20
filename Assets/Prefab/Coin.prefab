@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 4317176012905295467}
   - component: {fileID: 4317176012905295464}
   - component: {fileID: 4317176012905295465}
-  - component: {fileID: 4317176012905295470}
   - component: {fileID: 4317176012905295471}
   - component: {fileID: 1185589948}
   - component: {fileID: 1185589947}
+  - component: {fileID: 8297319965081139699}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -105,18 +105,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &4317176012905295470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4317176012905295468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c7d07d9b7d75894ab27ac21a25cec0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &4317176012905295471
 Animator:
   serializedVersion: 4
@@ -154,7 +142,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -4916,3 +4904,21 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &8297319965081139699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4317176012905295468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b2bd162057f7e84c8cc2fd27ec3f2dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particels: {fileID: 1185589948}
+  spriteRenderer: {fileID: 4317176012905295464}
+  animator: {fileID: 4317176012905295471}
+  audioSource: {fileID: 0}
+  pickupClip: {fileID: 0}
+  timeBeforeDeletion: 1
