@@ -17,7 +17,7 @@ public class Credits : MonoBehaviour
     }
     public void ButtonClick()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
 }

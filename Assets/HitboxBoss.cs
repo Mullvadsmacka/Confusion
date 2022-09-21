@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class HitboxBoss : MonoBehaviour
 {
+    [SerializeField] private GameObject UICanvas;
+    [SerializeField] private GameObject Credits;
     [SerializeField] private GameObject cameraComponent;
     [SerializeField] private float timer;
     private bool activeTimer = false;
@@ -12,15 +14,16 @@ public class HitboxBoss : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player") == true)
         {
-
+            
             cameraComponent.GetComponent<Kamera>().followTarget = gameObject;
             cameraComponent.GetComponent<Kamera>().smoothSpeed = 1000;
            collision.gameObject.GetComponent<SpriteRenderer>().enabled = false;
             //collision.gameObject.GetComponent<PlayerState>().Respawn();
             //Måste restarta level också
             activeTimer = true;
+            UICanvas.SetActive(false);
 
-          
+
         }
 
       
@@ -32,6 +35,8 @@ public class HitboxBoss : MonoBehaviour
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
+               
+                Credits.SetActive(true);
               //  SceneManager.LoadScene(1);
             }
         }
