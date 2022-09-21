@@ -14,22 +14,25 @@ public class HitboxBoss : MonoBehaviour
         {
 
             cameraComponent.GetComponent<Kamera>().followTarget = gameObject;
-            collision.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            cameraComponent.GetComponent<Kamera>().smoothSpeed = 1000;
+           collision.gameObject.GetComponent<SpriteRenderer>().enabled = false;
             //collision.gameObject.GetComponent<PlayerState>().Respawn();
             //Måste restarta level också
+            activeTimer = true;
 
           
         }
 
-        void Update()
+      
+    }
+    void Update()
+    {
+        if (activeTimer == true)
         {
-            if(activeTimer == true)
+            timer -= Time.deltaTime;
+            if (timer <= 0)
             {
-                timer -= Time.deltaTime;
-                if(timer <= 0)
-                {
-                   // SceneManager.SetActiveScene(1);
-                }
+              //  SceneManager.LoadScene(1);
             }
         }
     }
