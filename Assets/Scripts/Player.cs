@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private Animator animator;
+    public Animator animator;
 
     [SerializeField] private float gravity;
     public GameObject groundCheck;
@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     private Vector3 velocity;
     public float smoothTime = 0.05f;
 
-    // public bool cheeseMode = false;
+    
 
    [SerializeField] public bool canMove = true;
     [SerializeField] private float rotSpeed;

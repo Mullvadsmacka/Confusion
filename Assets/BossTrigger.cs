@@ -11,35 +11,53 @@ public class BossTrigger : MonoBehaviour
 
     [SerializeField] private Camera cameraComponent;
 
+    [SerializeField] private GameObject boss;
+
+    [SerializeField] private float speed;
+
+    private bool activeTimer = false;
+
 [SerializeField] private GameObject player;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") == true);
+        if (collision.gameObject.CompareTag("Player") == true)
         {
+         
             CutScene();
         }
     }
 
     private void Update()
     {
-        timer -= Time.deltaTime;
-        if(timer < 0)
+        if (activeTimer == true)
         {
-            
+            timer -= Time.deltaTime;
+            if (timer < 0)
+            {
+                StartBoss();
+                activeTimer = false;
+            }
         }
+       
     }
 
 
 private void CutScene()
 {
-
-        Debug.Log("What why?");
+    
+       
     player.GetComponent<Player>().canMove = false;
-     cameraComponent.orthographicSize = 8;
+        player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
+        player.GetComponent<Player>().animator.SetBool("Walking", false);
+        cameraComponent.fieldOfView = 100;
+        activeTimer = true;
+
 }
     private void StartBoss()
     {
        
+        boss.GetComponent<BezierFollow>().speedModifier = speed;
 
     }
     
