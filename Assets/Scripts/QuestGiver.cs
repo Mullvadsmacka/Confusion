@@ -63,7 +63,7 @@ public class QuestGiver : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") == true)
         {
             questGiverText.SetActive(true);
-            if (collision.GetComponent<PlayerState>().coins >= amountToCollect)
+            if (/*collision.GetComponent<PlayerState>().coins >= amountToCollect*/PlayerState.coins >= amountToCollect)
             {
                 /* textComponent.text = questCompleteText; 
                  collision.GetComponent<Quest>().isQuestComplete = true;

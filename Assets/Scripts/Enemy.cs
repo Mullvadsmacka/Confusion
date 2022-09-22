@@ -10,12 +10,12 @@ public class Enemy : MonoBehaviour
 
     public GameObject groundCheck;
     private bool isGrounded;
-    Rigidbody2D rb;
+    Rigidbody2D rigidBody2D;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody2D>();
+        rigidBody2D = gameObject.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -24,8 +24,8 @@ public class Enemy : MonoBehaviour
 
         Vector3 newPosition = gameObject.transform.position;
         newPosition.x += direction * speed * Time.fixedDeltaTime;
-        rb.MovePosition(newPosition);
-        GroundCeck();
+        rigidBody2D.MovePosition(newPosition);
+        GroundCheck();
 
         if (isGrounded == false)
         {
@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
 
 
 
-    private void GroundCeck()
+    private void GroundCheck()
     {
         isGrounded = false;
 
@@ -59,9 +59,9 @@ public class Enemy : MonoBehaviour
     private void ChangeDirection()
     {
         direction = -direction;
-        Vector3 currenScale = gameObject.transform.localScale;
-        currenScale.x = direction;
-        gameObject.transform.localScale = currenScale;
+        Vector3 currentScale = gameObject.transform.localScale;
+        currentScale.x = direction;
+        gameObject.transform.localScale = currentScale;
 
     }
 

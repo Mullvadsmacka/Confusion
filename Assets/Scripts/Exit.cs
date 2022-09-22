@@ -9,11 +9,7 @@ public class Exit : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Escape) == true)
-        {
-            Debug.Log("swap");
-            SceneManager.LoadScene(0);
-        }
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -22,7 +18,7 @@ public class Exit : MonoBehaviour
             // if (collision.GetComponent<Quest>().isQuestComplete == true)
             //  {
             Debug.Log("Next Level");
-            GameObserver.SaveCoinsToMemory(collision.GetComponent<PlayerState>().coins);
+            GameObserver.SaveCoinsToMemory(/*collision.GetComponent<PlayerState>().coins*/PlayerState.coins);
             SceneManager.LoadScene(0);
             //  }
         }

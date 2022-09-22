@@ -8,7 +8,7 @@ public class PlayerState : MonoBehaviour
     public int health = 5;
     public int maxHealth;
 
-    public int coins = 0;
+    public static int coins = 0;
 
     [SerializeField] private GameObject startPosition;
     [SerializeField] private bool useStartPosition = true;
