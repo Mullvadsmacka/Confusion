@@ -6,27 +6,20 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private Animator animator;
-
     [SerializeField] private float gravity;
     public GameObject groundCheck;
     SpriteRenderer spriteRenderer;
     Rigidbody2D rb;
     public float speed;
-
     private float defaultSpeed;
-
     public int jumpForce;
     public bool isGrounded;
     float moveDirection;
     bool isJumpPressed = false;
-
     bool isFacingLeft;
-
     private Vector3 velocity;
     public float smoothTime = 0.05f;
-
     [SerializeField] private LayerMask whatIsGround;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +30,6 @@ public class Player : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -46,7 +38,6 @@ public class Player : MonoBehaviour
         {
             isJumpPressed = true;
         }
-
         if (moveDirection != 0)
         {
             animator.SetBool("Walking", true);
@@ -55,87 +46,58 @@ public class Player : MonoBehaviour
         {
             animator.SetBool("Walking", false);
         }
-
-
-        
-
     }
-
     private void FixedUpdate()
     {
-
-
-
         isGrounded = false;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.transform.position, 0.2f, whatIsGround);
         for (int i = 0; i < colliders.Length; i++)
-        {
+        { 
             if (colliders[i].gameObject != gameObject)
             {
                 isGrounded = true;
             }
-
         }
-
-
         float verticalVelocity = 0f;
-
         Vector3 calculatedMovement = Vector3.zero;
-
-
         if (isGrounded == false)
         {
             verticalVelocity = rb.velocity.y;
-           
         }
-  
-
         //  Animator.SetFloat("Speed", Mathf.Abs());
-
         calculatedMovement.x = speed * 100f * moveDirection * Time.fixedDeltaTime;
         calculatedMovement.y = verticalVelocity;
         Move(calculatedMovement, isJumpPressed);
         isJumpPressed = false;
     }
-
     private void Move(Vector3 moveDirection, bool isJumpPressed)
     {
         if (moveDirection.x > 0f && isFacingLeft == true)
         {
-          FlipSpriteDirection();
+            FlipSpriteDirection();
         }
         else if (moveDirection.x < 0f && isFacingLeft == false)
         {
             FlipSpriteDirection();
         }
-
         rb.velocity = Vector3.SmoothDamp(rb.velocity, moveDirection, ref velocity, smoothTime);
-
-        
-
-
         if (isJumpPressed == true && isGrounded == true)
         {
             rb.AddForce(new Vector3(0f, jumpForce * 100f, 0f));
         }
     }
-
-
     private void FlipSpriteDirection()
     {
         spriteRenderer.flipX = !isFacingLeft;
         isFacingLeft = !isFacingLeft;
     }
-
     public void GetSpeedBoost(float boost)
-    {   
+    {
         speed = boost;
-       // speed *= boost;
+        // speed *= boost;
     }
     public void returnToNormalSpeed()
     {
         speed = defaultSpeed;
     }
-
-
 }
