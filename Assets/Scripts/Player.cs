@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
 
     
 
-   [SerializeField] public bool canMove = true;
+    [SerializeField] public bool canMove = true;
     [SerializeField] private float rotSpeed;
 
     [SerializeField] private LayerMask whatIsGround;
@@ -66,14 +66,6 @@ public class Player : MonoBehaviour
 
         }
 
-
-    }
-
-    private void FixedUpdate()
-    {
-
-
-
         isGrounded = false;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.transform.position, 0.2f, whatIsGround);
         for (int i = 0; i < colliders.Length; i++)
@@ -84,6 +76,16 @@ public class Player : MonoBehaviour
             }
 
         }
+
+
+    }
+
+    private void FixedUpdate()
+    {
+
+
+
+        
 
 
         float verticalVelocity = 0f;
@@ -149,6 +151,12 @@ public class Player : MonoBehaviour
     public void returnToNormalSpeed()
     {
         speed = defaultSpeed;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(groundCheck.transform.position, 0.2f);
     }
 
 
