@@ -11,7 +11,7 @@ public class BezierFollow : MonoBehaviour
 
     private float tParam;
 
-    private Vector3 objectPosition;
+    public Vector3 objectPosition;
 
     public float speedModifier;
 
@@ -25,39 +25,49 @@ public class BezierFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         routeToGo = 0;
         tParam = 0f;
-        
+
         coroutineAllowed = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-      
+
+
 
         if (coroutineAllowed)
         {
 
 
-           
+
             StartCoroutine(GoByTheRoute(routeToGo));
         }
     }
 
+    /*
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        speedModifier = 0.2f;
-    }
+            {
+                speedModifier = 0.2f;
+            }
+
+        }
 
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
+        private void OnCollisionExit2D(Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag("bossArea") == true)
+            {
+                speedModifier = 1f;
+            }
 
-        speedModifier = 1f;
-    }
+
+
+        */
 
     private IEnumerator GoByTheRoute(int routeNum)
     {
@@ -140,19 +150,19 @@ public class BezierFollow : MonoBehaviour
 
 
             transform.position = objectPosition;
-yield return new WaitForEndOfFrame();
-}
+            yield return new WaitForEndOfFrame();
+        }
 
-tParam = 0f;
+        tParam = 0f;
 
-routeToGo += 1;
+        routeToGo += 1;
 
-if (routeToGo > routes.Length - 1)
-{
-routeToGo = 0;
-}
+        if (routeToGo > routes.Length - 1)
+        {
+            routeToGo = 0;
+        }
 
-coroutineAllowed = true;
+        coroutineAllowed = true;
 
-}
+    }
 }
