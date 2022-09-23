@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8667189144115071216}
   - component: {fileID: 8667189144115071218}
   - component: {fileID: 8667189144115071217}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 8667189144390771458}
   - component: {fileID: 8667189144390771457}
   - component: {fileID: 8667189144390771456}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FaderCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 8667189145642095556}
   - component: {fileID: 8667189145642095611}
   - component: {fileID: 8667189145642095610}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: LevelSwapper
   m_TagString: Untagged
   m_Icon: {fileID: 0}

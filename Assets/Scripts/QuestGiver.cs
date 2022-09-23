@@ -16,6 +16,7 @@ public class QuestGiver : MonoBehaviour
     [SerializeField] private string questCompleteText;
     [SerializeField] private int amountToCollect = 1;
     [SerializeField] private GameObject questGiverText;
+    [SerializeField] private GameObject player;
 
     private Animator animator;
 
@@ -52,9 +53,7 @@ public class QuestGiver : MonoBehaviour
             if (timer >= transitionTime)
             {
 
-                Morph();
-
-                openingEyes = false;
+                NextLevel();
             }
         }
 
@@ -72,10 +71,15 @@ public class QuestGiver : MonoBehaviour
                  Debug.Log("Öppna");
                  */
 
+                player.GetComponent<Player>().canMove = false;
+                player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
+                player.GetComponent<Player>().animator.SetBool("Walking", false);
+
                 openingEyes = true;
                 animator.SetBool("Eyes", true);
                 animator.SetBool("Sleep", false);
                 animator.SetBool("Awake", false);
+                textComponent.text = questCompleteText;
 
             }
             else
@@ -111,7 +115,7 @@ public class QuestGiver : MonoBehaviour
         }
     }
 
-
+    /*
     private void Morph()
     {
         questGiverText.SetActive(false);
@@ -120,7 +124,7 @@ public class QuestGiver : MonoBehaviour
         closedMouth.SetActive(false);
         openMouth.SetActive(true);
     }
-
+    */
     private void NextLevel()
     {
         levelSwapper.GetComponent<LevalChanger>().FadeToLevel(1);

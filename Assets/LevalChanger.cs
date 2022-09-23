@@ -27,7 +27,7 @@ public class LevalChanger : MonoBehaviour
 
     public void OnFadeComplete()
     {
-        SceneManager.LoadScene(levelToLoad);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
     }
 
    

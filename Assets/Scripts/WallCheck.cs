@@ -13,16 +13,7 @@ public class WallCheck : MonoBehaviour
     {
     }
 
-    /*
-    private void OnTriggerEnter2D(Collider2D collision)
-   { 
-        if(collision.transform.CompareTag("Player") == true || collision.transform.CompareTag("Coin") == true){
-            return;
-        }
-         transform.parent.GetComponent<Enemy>().ChangeDirection();    
-   }
-
-    */
+ 
 
 
 }
