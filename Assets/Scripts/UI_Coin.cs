@@ -19,6 +19,6 @@ public class UI_Coin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textComponent.text = PlayerState.coins.ToString();
+        textComponent.text = PlayerState.coins.ToString();  
     }
 }

@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.22, y: -0.7}
+  m_AnchoredPosition: {x: 2.3, y: -0.82}
   m_SizeDelta: {x: 14.9992, y: 1.9915}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9129771488958468824
@@ -535,8 +535,8 @@ GameObject:
   - component: {fileID: 3388270521606458445}
   - component: {fileID: 3388270521606458447}
   - component: {fileID: 3388270521606458446}
-  - component: {fileID: 3388270521606458432}
   - component: {fileID: 3388270521606458433}
+  - component: {fileID: 1440073556}
   m_Layer: 0
   m_Name: GiantRat
   m_TagString: Untagged
@@ -560,7 +560,6 @@ Transform:
   - {fileID: 3388270520273231244}
   - {fileID: 3388270520476128561}
   - {fileID: 8679442719483570236}
-  - {fileID: 1601605353036251396}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -580,10 +579,12 @@ MonoBehaviour:
   openMouth: {fileID: 3388270520476128560}
   textComponent: {fileID: 2977955604579002235}
   questText: Can you bring me 10 pieces of cheese?
-  questCompleteText: test
-  amountToCollect: 10
+  questCompleteText: Well done little one
+  amountToCollect: 1
   questGiverText: {fileID: 2967925195835114176}
+  player: {fileID: 0}
   transitionTime: 3
+  levelSwapper: {fileID: 0}
 --- !u!212 &3388270521606458446
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -636,22 +637,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &3388270521606458432
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3388270521606458442}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.3046982, y: -0.06125921}
-  serializedVersion: 2
-  m_Radius: 0.7434382
 --- !u!95 &3388270521606458433
 Animator:
   serializedVersion: 4
@@ -672,6 +657,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &1440073556
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3388270521606458442}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.78131264, y: -0.1045967}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.6, y: 0.73}
+    newSize: {x: 1.6, y: 0.73}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5377463, y: 0.5208066}
+  m_EdgeRadius: 0
 --- !u!1 &5576532712717156971
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,89 +784,3 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!1001 &5687079299333647523
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 3388270521606458445}
-    m_Modifications:
-    - target: {fileID: 6401475343905944920, guid: 363a55e81eb9ce1448f5af18449b85c8, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -181.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6401475343905944920, guid: 363a55e81eb9ce1448f5af18449b85c8, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -447.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6401475345321913763, guid: 363a55e81eb9ce1448f5af18449b85c8, type: 3}
-      propertyPath: questText
-      value: Some say that his body reaches every city there is.
-      objectReference: {fileID: 0}
-    - target: {fileID: 6401475345321913767, guid: 363a55e81eb9ce1448f5af18449b85c8, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6401475345321913767, guid: 363a55e81eb9ce1448f5af18449b85c8, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.040000003
-      objectReference: {fileID: 0}
-    - target: {fileID: 6401475345321913767, guid: 363a55e81eb9ce1448f5af18449b85c8, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.040000003
-      objectReference: {fileID: 0}
-    - target: {fileID: 6401475345321913767, guid: 363a55e81eb9ce1448f5af18449b85c8, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.040000003
-      objectReference: {fileID: 0}
-    - target: {fileID: 6401475345321913767, guid: 363a55e81eb9ce1448f5af18449b85c8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.2855573
-      objectReference: {fileID: 0}
-    - target: {fileID: 6401475345321913767, guid: 363a55e81eb9ce1448f5af18449b85c8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.33992302
-      objectReference: {fileID: 0}
-    - target: {fileID: 6401475345321913767, guid: 363a55e81eb9ce1448f5af18449b85c8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.16060975
-      objectReference: {fileID: 0}
-    - target: {fileID: 6401475345321913767, guid: 363a55e81eb9ce1448f5af18449b85c8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6401475345321913767, guid: 363a55e81eb9ce1448f5af18449b85c8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6401475345321913767, guid: 363a55e81eb9ce1448f5af18449b85c8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6401475345321913767, guid: 363a55e81eb9ce1448f5af18449b85c8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6401475345321913767, guid: 363a55e81eb9ce1448f5af18449b85c8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6401475345321913767, guid: 363a55e81eb9ce1448f5af18449b85c8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6401475345321913767, guid: 363a55e81eb9ce1448f5af18449b85c8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6401475345321913772, guid: 363a55e81eb9ce1448f5af18449b85c8, type: 3}
-      propertyPath: m_Name
-      value: Mouse
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 363a55e81eb9ce1448f5af18449b85c8, type: 3}
---- !u!4 &1601605353036251396 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6401475345321913767, guid: 363a55e81eb9ce1448f5af18449b85c8, type: 3}
-  m_PrefabInstance: {fileID: 5687079299333647523}
-  m_PrefabAsset: {fileID: 0}
