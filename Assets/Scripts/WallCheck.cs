@@ -12,6 +12,8 @@ public class WallCheck : MonoBehaviour
     void Update()
     {
     }
+
+    /*
     private void OnTriggerEnter2D(Collider2D collision)
    { 
         if(collision.transform.CompareTag("Player") == true || collision.transform.CompareTag("Coin") == true){
@@ -19,4 +21,8 @@ public class WallCheck : MonoBehaviour
         }
          transform.parent.GetComponent<Enemy>().ChangeDirection();    
    }
+
+    */
+
+
 }
