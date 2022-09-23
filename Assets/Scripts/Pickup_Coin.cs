@@ -42,7 +42,7 @@ public class Pickup_Coin : MonoBehaviour
                 particels.Play();
                 removeGameObjects = true;
                 canPickupCoin = false;
-                audioSource.pitch = Random.Range(0.9f, 1.1f);
+//                audioSource.pitch = Random.Range(0.9f, 1.1f);
                 audioSource.PlayOneShot(pickupClip);
             }
         }

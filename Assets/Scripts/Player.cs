@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
         canMove = true;
         defaultSpeed = speed;
         animator = gameObject.GetComponent<Animator>();
-        animator.Play("IdleAnimation");
+        animator.Play("Idle");
 
         rb = gameObject.GetComponent<Rigidbody2D>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();

@@ -8,13 +8,13 @@ public class ElevatorConstrain : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     
      {
-           Debug.Log("HEJEHEHE");
+           /* Debug.Log("HEJEHEHE"); */
          if (collision.gameObject.CompareTag("Player") == true)
          {
 
            
              collision.gameObject.transform.SetParent(gameObject.transform);
-             Debug.Log("lessgo");
+             /* Debug.Log("lessgo"); */
          }
      }
 

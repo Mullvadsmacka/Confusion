@@ -29,9 +29,6 @@ public class Enemy : MonoBehaviour
             ChangeDirection();
         }
     }
-
-
-
     private void GroundCheck()
     {
         isGrounded = false;

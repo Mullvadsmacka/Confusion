@@ -7,7 +7,7 @@ public class Route : MonoBehaviour
 
 
 
-    GameObject gameObject;
+    /* GameObject gameObject; */
     
     [SerializeField]
     private Transform[] controlPoints;
