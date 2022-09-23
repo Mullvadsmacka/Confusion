@@ -59,22 +59,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-
-    /*private void GroundCheck()
-    {
-        isGrounded = false;
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.transform.position, 0.2f);
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            if (colliders[i].gameObject != gameObject)
-            {
-                isGrounded = true;
-
-            }
-        }
-    }
-
-    */
     public void ChangeDirection()
     {
         direction = -direction;

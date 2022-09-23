@@ -22,6 +22,7 @@ public class QuestGiver : MonoBehaviour
     [SerializeField] private float transitionTime;
     private float timer;
     private bool openingEyes;
+    [SerializeField] private GameObject levelSwapper;
 
     //  [SerializeField] private GameObject doorToOpenWhenQuestIsComplete;
 
@@ -44,7 +45,7 @@ public class QuestGiver : MonoBehaviour
 
 
         if (openingEyes == true)
-        {   
+        {
             Debug.Log("StartTimer");
 
             timer += Time.deltaTime;
@@ -118,6 +119,11 @@ public class QuestGiver : MonoBehaviour
         Debug.Log("nu ska den ändras");
         closedMouth.SetActive(false);
         openMouth.SetActive(true);
+    }
+
+    private void NextLevel()
+    {
+        levelSwapper.GetComponent<LevalChanger>().FadeToLevel(1);
     }
 
 }

@@ -47,27 +47,7 @@ public class BezierFollow : MonoBehaviour
         }
     }
 
-    /*
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-
-            {
-                speedModifier = 0.2f;
-            }
-
-        }
-
-
-        private void OnCollisionExit2D(Collision2D collision)
-        {
-            if (collision.gameObject.CompareTag("bossArea") == true)
-            {
-                speedModifier = 1f;
-            }
-
-
-
-        */
+ 
 
     private IEnumerator GoByTheRoute(int routeNum)
     {
@@ -82,70 +62,14 @@ public class BezierFollow : MonoBehaviour
         {
             tParam += Time.deltaTime * speedModifier;
 
-            /*
-              Vector3 diff = objectPosition - transform.position;
-        float rotationZ = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
-
-             */
-
-
-            /*  Vector3 dir = objectPosition - transform.position;
-              dir.y = 0;                                          // if you want in sepecific directions only or its optional 
-              transform.rotation = Quaternion.LookRotation(dir);
-              transform.position = objectPosition;
-            */
-
-
-            /*
-            Vector2 test = objectPosition - transform.position;
-
-            float rotSpeed = 360;
-
-            Quaternion rot = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(test), rotSpeed * Time.deltaTime);
-            transform.rotation = rot;
-            transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z);
-
-            */
-
-
-
-
-
-
             objectPosition = Mathf.Pow(1 - tParam, 3) * p0 + 3 * Mathf.Pow(1 - tParam, 2) * tParam * p1 + 3 * (1 - tParam) * Mathf.Pow(tParam, 2) * p2 + Mathf.Pow(tParam, 3) * p3;
 
-            // transform.LookAt(objectPosition);
 
 
-            // Quaternion diff = transform.rotation.z - objectPosition;
-
-            /*
-                float angle = Mathf.Atan2(objectPosition.y, objectPosition.x) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.Euler( new Vector3(0, 0, angle));
-            */
-
-            /*
-            
-               Vector3 D = objectPosition - transform.position;
-            Quaternion rot = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(D), rotSpeed * Time.deltaTime);
-            transform.rotation = rot;
-            transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z);
-            
-            */
-
-            /*
-             direction = (objectPosition - transform.position).normalized;
-
-            lookRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotSpeed);
-            */
-
-            
             Vector3 dir = objectPosition - transform.position;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, angle);
-            
+
 
 
 
