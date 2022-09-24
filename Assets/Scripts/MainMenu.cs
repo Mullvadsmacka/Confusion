@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
     {
         //PlayerPrefs.SetInt("CoinsAmount", 0) ;
        
-        SceneManager.LoadScene("Level02");
+        SceneManager.LoadScene("Level01");
     }
 
     public void QuitButton()

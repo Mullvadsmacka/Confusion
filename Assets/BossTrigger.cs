@@ -19,6 +19,9 @@ public class BossTrigger : MonoBehaviour
 
 [SerializeField] private GameObject player;
 
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip monsterRoar;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player") == true)
@@ -56,7 +59,7 @@ private void CutScene()
 }
     private void StartBoss()
     {
-       
+        audioSource.PlayOneShot(monsterRoar);
         boss.GetComponent<BezierFollow>().speedModifier = speed;
 
     }
