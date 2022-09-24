@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     private Vector3 velocity;
     public float smoothTime = 0.05f;
 
-    
+
 
     [SerializeField] public bool canMove = true;
     [SerializeField] private float rotSpeed;
@@ -65,17 +65,18 @@ public class Player : MonoBehaviour
             }
 
         }
-
         isGrounded = false;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.transform.position, 0.2f, whatIsGround);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject != gameObject)
             {
+                Debug.Log("Grounded");
                 isGrounded = true;
             }
 
         }
+
 
 
     }
@@ -85,7 +86,7 @@ public class Player : MonoBehaviour
 
 
 
-        
+
 
 
         float verticalVelocity = 0f;
@@ -103,12 +104,7 @@ public class Player : MonoBehaviour
         //  Animator.SetFloat("Speed", Mathf.Abs());
 
         calculatedMovement.x = speed * 100f * moveDirection * Time.fixedDeltaTime;
-        /*
-                if(cheeseMode == true)
-                {
-                    transform.Rotate(0.0f, 0.0f, -Input.GetAxis("Horizontal") * speed);
-                }
-              */
+
         calculatedMovement.y = verticalVelocity;
         Move(calculatedMovement, isJumpPressed);
         isJumpPressed = false;

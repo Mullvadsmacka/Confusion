@@ -8,6 +8,9 @@ public class SpeedBoost : MonoBehaviour
     [SerializeField] private float boost;
     private Player playerMovement;
 
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip pickupClip;
+
 
     private bool isUsingMovementSpeed = false;
     private float timer = 0f;
@@ -43,8 +46,9 @@ public class SpeedBoost : MonoBehaviour
                 isUsingMovementSpeed = true;
                 Debug.Log("Sppeeeeeeed");
                 playerMovement.GetSpeedBoost(boost);
-                //playerMovement.GetSpeedBoost(speedMultiplier);
-            }
+            //playerMovement.GetSpeedBoost(speedMultiplier);
+            audioSource.PlayOneShot(pickupClip);
+        }
         
     }
 

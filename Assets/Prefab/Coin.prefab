@@ -4921,7 +4921,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 4317176012905295464}
   animator: {fileID: 4317176012905295471}
   audioSource: {fileID: 4485992366540833177}
-  pickupClip: {fileID: 8300000, guid: 614f6048cd32b6245bc059c77cfade76, type: 3}
+  pickupClip: {fileID: 8300000, guid: 5fce1dcb382020d40b4fabbaec1baa0b, type: 3}
   timeBeforeDeletion: 1
 --- !u!82 &4485992366540833177
 AudioSource:
