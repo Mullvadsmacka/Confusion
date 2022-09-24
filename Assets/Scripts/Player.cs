@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float gravity;
     public GameObject groundCheck;
     SpriteRenderer spriteRenderer;
-    Rigidbody2D rb;
+    Rigidbody2D rb; 
     public float speed;
 
     private float defaultSpeed;
@@ -71,7 +71,7 @@ public class Player : MonoBehaviour
         {
             if (colliders[i].gameObject != gameObject)
             {
-                Debug.Log("Grounded");
+           
                 isGrounded = true;
             }
 

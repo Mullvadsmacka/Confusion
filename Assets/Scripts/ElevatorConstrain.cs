@@ -4,28 +4,28 @@ using UnityEngine;
 
 public class ElevatorConstrain : MonoBehaviour
 {
-    
+
     private void OnCollisionEnter2D(Collision2D collision)
-    
-     {
-           /* Debug.Log("HEJEHEHE"); */
-         if (collision.gameObject.CompareTag("Player") == true)
-         {
 
-           
-             collision.gameObject.transform.SetParent(gameObject.transform);
-             /* Debug.Log("lessgo"); */
-         }
-     }
+    {
+
+        if (collision.gameObject.CompareTag("Player") == true)
+        {
 
 
-     private void OnCollisionExit2D(Collision2D collision)
-     {
-         if (collision.gameObject.CompareTag("Player") == true)
-         {
-             collision.gameObject.transform.parent = null;
-         }
-     }
+            collision.gameObject.transform.SetParent(gameObject.transform);
 
-     
+        }
+    }
+
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") == true)
+        {
+            collision.gameObject.transform.parent = null;
+        }
+    }
+
+
 }
