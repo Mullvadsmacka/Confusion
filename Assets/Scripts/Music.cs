@@ -9,10 +9,11 @@ public class Music : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
 
     [SerializeField] private AudioClip musicClip;
+    
 
 
-
-    void Start()
+    
+void Start()
     {
 
         DontDestroyOnLoad(gameObject);
@@ -21,3 +22,6 @@ public class Music : MonoBehaviour
         audioSource.Play();
     }
 }
+
+
+
