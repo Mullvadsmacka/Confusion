@@ -48,9 +48,9 @@ public class BossTrigger : MonoBehaviour
 
 private void CutScene()
 {
-    
-       
-    player.GetComponent<Player>().canMove = false;
+        audioSource.PlayOneShot(monsterRoar);
+
+        player.GetComponent<Player>().canMove = false;
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
         player.GetComponent<Player>().animator.SetBool("Walking", false);
         cameraComponent.fieldOfView = 100;
@@ -59,7 +59,7 @@ private void CutScene()
 }
     private void StartBoss()
     {
-        audioSource.PlayOneShot(monsterRoar);
+       
         boss.GetComponent<BezierFollow>().speedModifier = speed;
 
     }

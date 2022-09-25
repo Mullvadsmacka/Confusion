@@ -48,6 +48,7 @@ public class PlayerState : MonoBehaviour
     {
         health = maxHealth;
         gameObject.transform.position = respawnPoint.transform.position;
+        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2 (0,0);
     }
 
     public void PickCoin()
